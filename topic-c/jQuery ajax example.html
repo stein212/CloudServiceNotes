@@ -1,0 +1,38 @@
+<html>
+    <head></head>
+    <body>
+        <p>Employees</p>
+        <button>Click to load Employees</button>
+
+        <ul id="employee-list"></ul>
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        // find elements
+        let button = $('button')
+        let employeeList = $('#employee-list')
+
+        // handle click and add class
+        button.on('click', function() {
+            $.getJSON('http://dummy.restapiexample.com/api/v1/employees', function(
+                data,
+                status,
+                jqxhr
+            ) {
+                console.log(data)
+                console.log(status, jqxhr)
+
+                employeeList.empty()
+
+                for (let employee of data) {
+                    employeeList.append(
+                        `<li>${employee.id} - ${employee.employee_name} - ${
+                            employee.employee_age
+                        } - ${employee.employee_salary}</li>`
+                    )
+                }
+            })
+        })
+    </script>
+</html>
