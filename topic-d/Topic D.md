@@ -127,7 +127,21 @@ DEMO
 
 ## SOAP
 
-Nothing here for now
+https://www.guru99.com/soap-simple-object-access-protocol.html
+
+#### Consuming SOAP Services in .NET Framework
+
+https://medium.com/grensesnittet/integrating-with-soap-web-services-in-net-core-adebfad173fb
+
+#### Consuming SOAP services in .NET Core
+
+https://docs.microsoft.com/en-us/dotnet/core/additional-tools/dotnet-svcutil-guide
+
+#### Public Soap Services
+
+-   http://www.dataaccess.com/webservicesserver/numberconversion.wso
+-   http://www.dneonline.com/calculator.asmx
+-   http://www.gcomputer.net/webservices/dilbert.asmx?op=TodaysDilbert
 
 ---
 
