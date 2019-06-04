@@ -45,6 +45,7 @@
     -   Source code (C# project and html file for jQuery/javascript calling api)
     -   Diagram
     -   Demo C# and jQuery/javascript api calls
+    -   Hardcopy of Diagram
 
 ---
 
@@ -66,6 +67,7 @@
     -   WEB API Document (Create your own documentation if needed)
     -   postman screenshots (CRUD and validation errors)
     -   Demo the WEB API
+    -   Hardcopy of WEB API documentation and postman screenshots
 
 ---
 
@@ -92,6 +94,7 @@ Follow the videos in this [link](http://mycsc.net/uncategorized/web-api-2-securi
 
     -   WEB API Document (Create your own documentation if needed)
     -   Demo the simple webpage during interview
+    -   Hardcopy of WEB API documentation
 
 ---
 
@@ -130,9 +133,10 @@ Follow the videos in this [link](http://mycsc.net/uncategorized/web-api-2-securi
 
 -   Deliverables
     -   Source code (C# Web form and WEB Api project)
-    -   WEB API Document (Create your own documentation if needed
+    -   WEB API Document (Create your own documentation if needed)
     -   postman screenshot
     -   Demo
+    -   Hardcopy of WEB API documentation and postman screenshots
 
 ---
 
@@ -165,6 +169,7 @@ Follow the videos in this [link](http://mycsc.net/uncategorized/web-api-2-securi
     -   Demo
     -   Sequence diagram of how the stripe charge happened
     -   Change Task 4.3 to use images in AWS S3 and demo it
+    -   Hardcopy of sequence diagram
 
 ---
 
