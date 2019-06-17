@@ -10,6 +10,8 @@
 
 4.  An interview session will be done at the end of the assignment. No mark will be awarded if you did not attend the interview session.
 
+> Hardcopy of documentation to be submitted during your interview session in Week 2 of Term 2
+
 ---
 
 ## Tasks
