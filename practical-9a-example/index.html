@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Practical 9</title>
+
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/buefy/dist/buefy.min.css"
+        />
+    </head>
+    <body>
+        <div id="app">
+            <section class="section">
+                <div class="container">
+                    <div class="column is-4 is-offset-4">
+                        <!-- Upload ui -->
+                        <b-upload v-model="fileToUpload">
+                            <a class="button is-primary">
+                                <span>Choose an image</span>
+                            </a>
+                        </b-upload>
+                        <button
+                            class="button"
+                            type="button"
+                            @click="uploadImage"
+                        >
+                            Upload
+                        </button>
+                        <br />
+                        <br />
+
+                        <!-- List all images ui -->
+                        <div v-for="image in objectsInS3" class="box">
+                            <figure class="image">
+                                <img :src="`${bucketUrl}/${image.Key}`" />
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <b-loading :active="isLoading"></b-loading>
+        </div>
+
+        <!-- Get the aws sdk -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.494.0/aws-sdk.min.js"></script>
+        <!-- VueJs is used to control the html elements above -->
+        <script src="https://vuejs.org/js/vue.js"></script>
+        <!-- Buefy is a css framework base on Bulma and uses VueJs to control its ui elements -->
+        <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+        <script>
+            // Get your credentials from Vocareum
+            // The credentials from Vocareum last only 1 hour
+            // remember to get new credentials when they expire
+            AWS.config.update({
+                accessKeyId: 'ASIA4FXTEL6IDMGE6TYE',
+                secretAccessKey: 'OYJiNnHiNBECjrNJjgOHpXGZKpIqbQNa7KuwhHHF',
+                sessionToken:
+                    'FQoGZXIvYXdzEPz//////////wEaDMfjNCyB0mplCAUBZyKCA8W3gBZPckjJbJ3E00ebdwbGa5j72sCvRHN7BohOaX5/SIfXwS4GPDzJYOSyaJTZ3H1FGb9qOtGG3DXK8El28ihE2xqR7e68WidmXPLS4v15INP/zGqVuKmcS0VRMzv7xEORRvC+N6V1tgh6138S7mQMl5wsb7s5FLaxqqCha6yO0L5J09F5qagiV9hVZFeOTBwEU1S2j3lXAOSc2FUPHNDt+PClaLcjk4HdboOZtnkmvU6wioT/1rg3MJirFpJbFAl5bAp/k2E/kbbqkbE67O/cGXZQGvW1lrO2RF+KNe/NE7ZiYPREA5eZmXB2Bm3F8FxOYW35DiNzzNJ629JIVa9MO21v1RdRtAEdQkdYdgvnwbXH/rJyKmyqF+bIyMvIX8p+vqGbdEWsCqlxPu3XZnWbImKytEr6/78rglvi1SNkfJKi8yW/dJIrqIVU6Tirb07JfriZo0yBORRki988EhHPsq+9m6twm1pkGpsPK4EG7o/pMLKyKVcwJ1yaHt6bk4O9KNyzv+kF',
+                region: 'us-east-1',
+            })
+
+            // Create the s3 client from the AWS SDK
+            const s3 = new AWS.S3({
+                // Specify the bucket you want to use
+                params: { Bucket: 'csc-talents-1562741785' }, // Do not try to use my bucket
+            })
+
+            const app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        isLoading: false,
+
+                        fileToUpload: null,
+                        bucketUrl:
+                            'https://csc-talents-1562741785.s3.amazonaws.com',
+
+                        objectsInS3: [],
+                    }
+                },
+                // On document ready, call loadObjectsInS3
+                mounted() {
+                    this.loadObjectsInS3()
+                },
+                methods: {
+                    loadObjectsInS3() {
+                        this.isLoading = true
+
+                        // get a list of objects from S3 bucket
+                        return (
+                            s3
+                                .listObjects()
+                                .promise()
+                                // Once aws responds with the list of objects
+                                .then(({ Contents }) => {
+                                    // Store the list of objects into a variable
+                                    this.objectsInS3 = Contents
+                                    this.isLoading = false
+                                })
+                        )
+                    },
+                    // On click 'upload' button
+                    uploadImage() {
+                        this.isLoading = true
+
+                        // Upload the file to s3
+                        s3.upload({
+                            // Use file name as the Key of the object in S3
+                            Key: this.fileToUpload.name,
+                            // fileToUpload is set by the <b-upload> tag when we choose a file
+                            Body: this.fileToUpload,
+                            // Make it available to public
+                            ACL: 'public-read',
+                        })
+                            .promise()
+                            // Once AWS responds
+                            .then(async () => {
+                                // Reload the list of objects
+                                await this.loadObjectsInS3()
+
+                                this.isLoading = false
+                            })
+                    },
+                },
+            })
+        </script>
+    </body>
+</html>
