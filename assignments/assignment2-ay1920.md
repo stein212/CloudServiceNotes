@@ -142,6 +142,22 @@
 
 ---
 
+## Technical Documentation Requirements
+
+| Item                                                | Remarks                                                                                                                                                                          |
+| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Setup for Windows Azure/AWS development environment | Steps to setup the environment                                                                                                                                                   |
+| Detailed Architecture for Application               | A diagram that shows how different services are connected to each other                                                                                                          |
+| Web Services                                        | Postman & Soap Testing screen shots                                                                                                                                              |
+| External Web services                               | sequence diagram for all external web services                                                                                                                                   |
+| User interface                                      | How to prevent users from clicking multiple times & simulate slow network using browser (screenshots for both)                                                                   |
+| Documentation of Web service                        | What does each action do                                                                                                                                                         |
+| Validation                                          | Screenshots of ui validation (error message on ui detailing the validation error) and postman server model validation (error message from server detailing the validation error) |
+| Security                                            | How it is secured                                                                                                                                                                |
+| Other features and functions                        | Mainly for advanced tasks and other features you implement                                                                                                                       |
+
+---
+
 ## List of services
 
 -   Disqus (Comments service)
