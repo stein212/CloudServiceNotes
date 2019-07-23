@@ -1,4 +1,4 @@
-# CSC Assignment 2 AY 19/20
+# CSC Assignment 2 AY 19/20 Sem 2
 
 ## Actual Assignment Document Link
 
