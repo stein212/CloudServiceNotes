@@ -1,4 +1,4 @@
-# CSC Assignment AY 19/20
+# CSC Assignment 1 AY 19/20
 
 ## Instructions
 
