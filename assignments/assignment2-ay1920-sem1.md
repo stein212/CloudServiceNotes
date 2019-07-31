@@ -89,8 +89,16 @@
     -   To be secured with SSL and JWT Bearer Token
 
 6.  Store session data in DynamoDB (NoSQL)
+
     -   Refer to [assignment 2 appendix D](https://docs.google.com/document/d/14QpqXRWT6jZVE7DOxP33mwUSJcm3XdbAQnS64W1y4Co/edit#bookmark=id.e25eyvhi40o3)
     -   Or google it yourself
+
+7.  Hosting the application
+
+    -   Host on AWS EC2 with this [practical](https://docs.google.com/document/d/1YvRloJnBKozgV8BZqQnLAZrJm-MZbUumh4U7SXZa1l8/edit?usp=sharing)
+    -   Host on AWS Elastic Beanstalk with this [practical](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_NET.quickstart.html)
+
+8.  Web Services (APIs) and Web server (server that serves the web pages) to be hosted separately
 
 ---
 
@@ -110,18 +118,11 @@
 
     -   Environment variables or secret files that are not pushed to version control
 
-4.  Hosting the application
+4.  Maintain Session Status accross different devices
 
-    -   Host on AWS EC2 with this [practical](https://docs.google.com/document/d/1YvRloJnBKozgV8BZqQnLAZrJm-MZbUumh4U7SXZa1l8/edit?usp=sharing)
-    -   Host on AWS Elastic Beanstalk with this [practical](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_NET.quickstart.html)
+5.  Implementing Failover feature for talent service
 
-5.  Maintain Session Status accross different devices
-
-6.  Implementing Failover feature for talent service
-
-7.  Web Services (APIs) and Web server (server that serves the web pages) to be hosted separately
-
-8.  Schedule your EC2 instance to only run 8am to 10pm
+6.  Schedule your EC2 instance to only run 8am to 10pm
 
 ---
 
